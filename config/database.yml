@@ -18,9 +18,12 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  adapter: sqlite3
-  database: db/test.sqlite3
+  adapter: mysql2
+  database: fitness_junction_test
   pool: 5
+  username: root
+  password: johnmc
+  host: 127.0.0.1
   timeout: 5000
 
 production:
