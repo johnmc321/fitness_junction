@@ -1,53 +1,26 @@
 <% provide(:title, 'Sign Up') %>
-<h1>Sign Up, it's FREE!</h1>
-<div id="signup_form">
-<form id="form1" name="form1" method="post" action="dashboard.html" >
-<p><span id="sprytextfield1">
-<label for="firstName2">First Name:</label>
-<input name="firstName" type="text" id="firstName2" size="40" />
-<span class="textfieldRequiredMsg">A value is required.</span></span></p>
-<p><span id="sprytextfield2">
-  <label for="lastName">Last Name:</label>
-  <input name="lastName" type="text" id="lastName" size="40" />
-  <span class="textfieldRequiredMsg">A value is required.</span></span></p>
-<p><span id="sprytextfield3">
-<label for="emailAddress">Email Address:</label>
-<input name="emailAddress" type="text" id="emailAddress" size="40" />
-<span class="textfieldRequiredMsg">A value is required.</span><span class="textfieldInvalidFormatMsg">Invalid format.</span></span></p>
-<p><span id="spryconfirm1">
-  <label for="confirmEmail">Confirm Email:</label>
-  <input name="confirmEmail" type="text" id="confirmEmail" size="40" />
-  <span class="confirmRequiredMsg">A value is required.</span><span class="confirmInvalidMsg">The values don't match.</span></span></p>
-<p><span id="sprypassword1">
-<label for="choosePassword">Choose Password:</label>
-<input name="choosePassword" type="password" id="choosePassword" size="40" />
-<span class="passwordRequiredMsg">A value is required.</span><span class="passwordMinCharsMsg">Minimum number of characters not met.</span></span></p>
-<p><span id="spryconfirm2">
-  <label for="confirmPassword">Confirm Password:</label>
-  <input name="confirmPassword" type="password" id="confirmPassword" size="40" />
-  <span class="confirmRequiredMsg">A value is required.</span><span class="confirmInvalidMsg">The values don't match.</span></span></p>
-<p><span id="sprycheckbox1">Subscribe to Newsletter
-    <input name="newsletter" type="checkbox" id="newsletter" checked="checked" />
-    <span class="checkboxRequiredMsg">Please make a selection.</span></span></p>
+<h1 class="center">Sign Up, it's FREE!</h1>
 
-  <p>
-    <input type="submit" name="submit" id="submit" value="Sign Up" />
-    
-  </p>
-  <p>&nbsp;</p>
-  <p>&nbsp;</p>
-  <p>&nbsp;</p>
-</form>
-<script type="text/javascript">
-var sprytextfield2 = new Spry.Widget.ValidationTextField("sprytextfield2", "none", {validateOn:["blur"]});
-var sprytextfield1 = new Spry.Widget.ValidationTextField("sprytextfield1", "none", {validateOn:["blur"]});
-var sprytextfield3 = new Spry.Widget.ValidationTextField("sprytextfield3", "email", {validateOn:["blur"]});
-var spryconfirm1 = new Spry.Widget.ValidationConfirm("spryconfirm1", "emailAddress", {validateOn:["blur"]});
-var sprypassword1 = new Spry.Widget.ValidationPassword("sprypassword1", {minChars:6, validateOn:["blur"]});
-var spryconfirm2 = new Spry.Widget.ValidationConfirm("spryconfirm2", "choosePassword", {validateOn:["blur"]});
-</script>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@user) do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation %>
+
+      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
 </div>
-<script type="text/javascript">
-var sprycheckbox1 = new Spry.Widget.ValidationCheckbox("sprycheckbox1");
-</script>
+
+
 
