@@ -36,6 +36,9 @@ FitnessJunction::Application.configure do
   config.active_support.deprecation = :stderr
 
    # Speed up tests by lowering BCrypt's cost function.
+   # BCrypt uses a cost factor to control how computationally costly it is to create the secure hash. 
+   # The default value is designed for security, not for speed.
+   # The code below redefines the cost factor from its secure default value to its fast minimum value
   require 'bcrypt'
   silence_warnings do
     BCrypt::Engine::DEFAULT_COST = BCrypt::Engine::MIN_COST
