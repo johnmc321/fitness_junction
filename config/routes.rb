@@ -1,5 +1,8 @@
 FitnessJunction::Application.routes.draw do
+  get "activities/new"
+
   resources :users
+  resources :activities
   resources :sessions, only: [:new, :create, :destroy]
 
   root to: 'static_pages#home'

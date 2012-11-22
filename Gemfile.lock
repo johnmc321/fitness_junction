@@ -45,6 +45,7 @@ GEM
       xpath (~> 0.1.4)
     childprocess (0.3.6)
       ffi (~> 1.0, >= 1.0.6)
+    cocaine (0.4.2)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -82,6 +83,12 @@ GEM
     mysql2 (0.3.11-x86-mingw32)
     nokogiri (1.5.5)
     nokogiri (1.5.5-x86-mingw32)
+    paperclip (3.3.1)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.4.0)
+      mime-types
     pg (0.12.2)
     pg (0.12.2-x86-mingw32)
     polyglot (0.3.3)
@@ -163,6 +170,7 @@ DEPENDENCIES
   factory_girl_rails (= 4.1.0)
   jquery-rails (= 2.0.2)
   mysql2
+  paperclip (~> 3.3.1)
   pg (= 0.12.2)
   rails (= 3.2.8)
   rspec-rails (= 2.11.0)
