@@ -4,4 +4,8 @@ class StaticPagesController < ApplicationController
 
   def about
   end
+
+  # delete this when activity model added
+  def upload
+  end
 end
