@@ -11,7 +11,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:success] = "Welcome to Fitness Junction!"
+      sign_in @user
+      flash[:success] = "Welcome to Fitness Junction!" # uses a key called success because there is a class by the same name defined in the Bootstrap CSS (which makes it appear in green)
       redirect_to @user
     else
       render 'new'
