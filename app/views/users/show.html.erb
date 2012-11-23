@@ -1,12 +1,49 @@
 <% provide(:title, @user.name) %>
-<h1>Dashboard</h1>
+<h1 class="center">Dashboard</h1>
 <div class="row">
-  <aside class="span4">
+  <aside class="span3">
     <section>
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
+      <h1><%= @user.name %></h1>
+       <%= gravatar_for @user %>
+       <br/>
+       <br/>
+       <br/>
+       <br/>
+       <br/>
+       <br/>
+       <h6>Age:</h6>
+       <h6>Location:</h6>
+       <h6>Interests:</h6>
     </section>
   </aside>
+
+  <aside class="span3 offset0">
+    <section>
+      <h1>Recent Activities</h1>
+      <%= link_to image_tag("Google-Map-Route", alt: "friend1"), '#' %>Friend1
+      <br/>
+      
+      <br/>
+      
+    </section>
+  </aside>
+
+  <aside class="span2 offset4">
+    <section>
+      <h1>Amigoes</h1>
+      <%= link_to image_tag("person-logo.png", alt: "friend1"), '#' %>Friend1
+      <br/>
+      <br/>
+      <%= link_to image_tag("person-logo.png", alt: "friend1"), '#' %>Friend2
+      <br/>
+      <br/>
+      <%= link_to image_tag("person-logo.png", alt: "friend1"), '#' %>Friend3
+      <br/>
+      <br/>
+      
+    </section>
+  </aside>
+
+   
+
 </div>
