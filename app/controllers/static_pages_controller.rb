@@ -6,6 +6,6 @@ class StaticPagesController < ApplicationController
   end
 
   # delete this when activity model added
-  def upload
+  def search
   end
 end

@@ -2,7 +2,11 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 gem 'bootstrap-sass', '2.1'
+
+# password encryption
 gem 'bcrypt-ruby', '3.0.1'
+
+# file uploading
 gem "paperclip", "~> 3.3.1"
 
 # Bundle edge Rails instead:

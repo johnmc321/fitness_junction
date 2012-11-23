@@ -1,14 +1,32 @@
-/* over-rides of defaukt Bootstrap colors */
+/* over-rides of default Bootstrap colors */
+
+$navbarHeight: 55px;
+$gridColumnWidth: 60px;
 
 
-$navbarHeight: 50px;
-
-/* $bodyBackground: #E8E8E8; */
 
 
 @import "bootstrap";
 
+.thumbnails > li {
+  float: left;
+  margin-bottom: 20px;
+  margin-left: 0px;
+}
 
+
+.thumbnail {
+  display: block;
+  padding: 5px;
+  border: 0px;
+  }
+
+ .hero-unit {
+    background-color: #FFFFFF;
+    border-radius: 6px 6px 6px 6px;
+    margin-bottom: 30px;
+    padding: 10px;
+}
 
 /* mixins, variables, etc. */
 
@@ -59,11 +77,10 @@ h3, p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  font-style: italic;
-  color: #303030;
+  color: #A8A8A8;
   text-transform: capitalize;
   letter-spacing: -0.5px;
-  padding-top: 10px;
+  padding-top: 15px;
   font-weight: bold;
   line-height: 1;
   &:hover {

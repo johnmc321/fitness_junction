@@ -4,35 +4,24 @@
 
     <ul class="thumbnails">
     <li class="span3">
-    	<%= link_to image_tag("record2.png", alt: "record") %>
+    	<%= link_to image_tag("record2.png", alt: "record"), about_path, :class => 'thumbnail' %>
     </li>
-    <li class="span5">
-    	<%= link_to image_tag("record2.png", alt: "record") %>
+    <li class="span3">
+    	<%= link_to image_tag("friends2.png", alt: "record"), about_path, :class => 'thumbnail' %>
     </li>
-    <li class="span4">
-    	<%= link_to image_tag("record2.png", alt: "record") %>
+    <li class="span3">
+    	<%= link_to image_tag("compete2.png", alt: "record"), about_path, :class => 'thumbnail' %>
     </li>
-    <li class="span4">
-    	<%= link_to image_tag("record2.png", alt: "record") %>
+    <li class="span3">
+    	<%= link_to image_tag("sign3.png", alt: "signup"), about_path, :class => 'thumbnail' %>
     </li>
     
     </ul>
 
-<div class="home-icons"><%= link_to image_tag("record2.png", alt: "record") %><%= link_to image_tag("friends2.png", alt: "friends") %><%= link_to image_tag("compete2.png", alt: "compete") %><%= link_to image_tag("sign3.png", alt: "signup"), signup_path %>
-
-	<!--<img class="home_btn" src="record2.png" alt="button1" name="button1" width="226" height="129" id="btn1" />
-  <img class="home_btn" src="Images/friends2.png" alt="button1" name="button1" width="226" height="129" id="btn2" /> <img class="home_btn" src="Images/compete2.png" alt="button1" name="button1" width="226" height="129" id="btn3" /> <a href="signup.html"><img class="home_btn" src="Images/sign3.png" alt="button1" name="button1" width="226" height="129" id="btn4" /></a>-->
-
-
-</div>
 <div id="apDiv2">
   <h3>Record Your Activities</h3>
   <p> Go for a run, or ride your bike, then log on to Fitness Junction and record the details of your activity. Compare your times to your previous activities, plot your route on a map, record notes on how you felt. Use your GPS training device to upload even more data, such as your heart rate details, average speed, and more.</p>
 </div>
-<p>&nbsp;</p>
-
-
-  <%= link_to "BUTTON!", '#', class: "btn btn-large btn-primary" %>
 </div>
 
 <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>

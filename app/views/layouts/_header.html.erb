@@ -1,14 +1,18 @@
-<header class="navbar navbar-fixed-top navbar">
+<header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
       <%= link_to "Fitness Junction", root_path, id: "logo" %>
       <nav>
+
+
         <ul class="nav pull-right">
+
           <li><%= link_to "Home", root_path %></li>
+         
           <li><%= link_to "About", about_path %></li>
           <% if signed_in? %>
-          <li><%= link_to "Users", '#' %></li>
-          <li><%= link_to "Upload Activity", new_activity_path %></li>
+          <li><%= link_to "Search", search_path %></li>
+          
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <b class="caret"></b>
@@ -21,7 +25,9 @@
                   <%= link_to "Sign out", signout_path, method: "delete" %>
                 </li>
               </ul>
+
             </li>
+             <%= link_to "Upload", new_activity_path, class: "btn btn-small btn-warning" %>
           <% else %>
           <li><%= link_to "Sign In", signin_path %></li>
           <% end %>
@@ -30,3 +36,4 @@
     </div>
   </div>
 </header>
+
