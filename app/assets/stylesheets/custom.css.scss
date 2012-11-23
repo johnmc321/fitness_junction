@@ -1,4 +1,13 @@
+/* over-rides of defaukt Bootstrap colors */
+
+
+$navbarHeight: 50px;
+
+/* $bodyBackground: #E8E8E8; */
+
+
 @import "bootstrap";
+
 
 
 /* mixins, variables, etc. */
@@ -50,17 +59,19 @@ h3, p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #980000;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
+  font-style: italic;
+  color: #303030;
+  text-transform: capitalize;
+  letter-spacing: -0.5px;
+  padding-top: 10px;
   font-weight: bold;
   line-height: 1;
   &:hover {
-  color: #fff;
+  color: #00CCFF;
   text-decoration: none;
 }
 }
+
 
 
 /* footer */
