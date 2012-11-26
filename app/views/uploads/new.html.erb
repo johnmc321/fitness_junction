@@ -1,0 +1,22 @@
+<% provide(:title, 'Uploads') %>
+<div class="center hero-unit">
+<h1>Upload a datafile</h1>
+<p class="center">
+  Select a file from your computer or from a connected device.
+</p>
+<div class="row">
+  <div class="span4 offset2">
+    <%= form_for @upload, :html => { :multipart => true} do |f| %>
+    
+
+
+      <%= f.label :name, "Select file:" %>
+      <%= f.file_field :name %>
+      <br/>
+      
+
+      <%= f.submit "Upload", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
+</div>

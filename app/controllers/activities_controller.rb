@@ -1,6 +1,15 @@
 class ActivitiesController < ApplicationController
+
+  require 'nokogiri'
+
 	def show
-    @activity = Activity.find(params[:id])
+    john = Nokogiri::XML(File.read("training.xml"))
+
+    @test = john.xpath("//TotalTimeSeconds")
+    @test1 = john.xpath("//Name")
+    @test2 = john.xpath("//DistanceMeters")
+
+   
   end
 
   def new

@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 gem 'bootstrap-sass', '2.1'
+gem "nokogiri", "~> 1.5.5"
 
 # password encryption
 gem 'bcrypt-ruby', '3.0.1'

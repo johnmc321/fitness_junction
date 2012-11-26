@@ -1,7 +1,7 @@
 <% provide(:title, @user.name) %>
 <h1 class="center">Dashboard</h1>
-<div class="row">
-  <aside class="span3">
+<div class="row-fluid">
+  <aside class="span2">
     <section>
       <h1><%= @user.name %></h1>
        <%= gravatar_for @user %>
@@ -17,9 +17,9 @@
     </section>
   </aside>
 
-  <aside class="span3 offset0">
+  <aside class="span4  offset-1">
     <section>
-      <h1>Recent Activities</h1>
+      <h1>Recent Activities <%= link_to "Add New Activity", new_activity_path %></h1>
       Monday 21st November, 20km run
 <%= link_to image_tag("map3.jpg", alt: "Rails", height: "90px", width: "90px"), 'http://rubyonrails.org/' %> 
 <br/>
