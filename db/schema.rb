@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121127214335) do
+ActiveRecord::Schema.define(:version => 20121128103450) do
 
   create_table "activities", :force => true do |t|
     t.string   "name"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20121127214335) do
     t.string   "upload_content_type"
     t.integer  "upload_file_size"
     t.datetime "upload_updated_at"
-    t.string   "type"
+    t.string   "activity_type"
     t.string   "location"
     t.integer  "user_id"
   end

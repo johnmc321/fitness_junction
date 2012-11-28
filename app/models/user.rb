@@ -26,6 +26,12 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 } # don't need to explicitly validate presence of password as this is done auotmatically by has_secure_password
   validates :password_confirmation, presence: true
 
+
+def feed
+    # This is preliminary. See "Following users" for the full implementation.
+    Activity.where("user_id = ?", id)
+  end
+
   private
       # use the urlsafe_base64 method from the SecureRandom Ruby library module  to create the token
       def create_remember_token

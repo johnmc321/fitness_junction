@@ -1,29 +1,36 @@
 <% provide(:title, @user.name) %>
-<h1 class="center">Dashboard</h1>
+<h1 class="center">Dashboard - <%= current_user.name %></h1>
+<br/>
+       <br/>
 <div class="row-fluid">
   <aside class="span2">
     <section>
-      <h1><%= @user.name %></h1>
-       <%= gravatar_for @user %>
-       <br/>
-       <br/>
-       <br/>
-       <br/>
-       <br/>
+      <h1>Profile</h1>
+       <a href="<%= user_path(current_user) %>">
+  <%= gravatar_for current_user %>
+</a>
+ <br/>
+      <br/>
+      <br/>
+      <br/>
        <br/>
        <h6>Age:</h6>
        <h6>Location:</h6>
        <h6>Interests:</h6>
+
+       <span>
+  <%= link_to "edit profile", edit_user_path(current_user) %>
+</span>
     </section>
   </aside>
 
   <div class="span6">
     <% if @user.activities.any? %>
-      <h3>Activities (<%= @user.activities.count %>)</h3>
-      <ol class="activities">
-        <%= render @activities %>
-      </ol>
-      <%= will_paginate @activities %>
+      <h3>Activities (<%= @user.activities.count %>)<%= link_to " add new activity", new_activity_path %></h3>
+     
+        <%= render 'shared/feed' %>
+      
+    
     <% end %>
   </div>
 

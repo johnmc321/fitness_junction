@@ -9,6 +9,13 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  def signed_in_user
+    unless signed_in?
+      store_location
+      redirect_to signin_url, notice: "You must be signed in to access this page."
+    end
+  end
+
   # defines the current_user= method so that it can be called on self (@current_user sets an instance variable)
   def current_user=(user)
     @current_user = user

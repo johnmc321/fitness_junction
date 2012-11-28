@@ -6,7 +6,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @activities = @user.activities.paginate(page: params[:page])
+    @activity = current_user.activities.build
+    @feed_items = current_user.feed.paginate(page: params[:page])
   end
 
   def new
@@ -49,13 +50,7 @@ class UsersController < ApplicationController
 
   private
 
-    def signed_in_user
-      unless signed_in?
-        store_location # see sessions_helper.rb
-      redirect_to signin_url, notice: "You must be signed in to access this page."
-    end
-  end
-
+    
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_path) unless current_user?(@user)

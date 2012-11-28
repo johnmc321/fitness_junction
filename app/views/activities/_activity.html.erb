@@ -1,7 +1,7 @@
 <li>
-  <%= link_to image_tag("map2.jpg", alt: "Rails", height: "50px", width: "50px"), 'http://rubyonrails.org/' %>
-  <span class="content"><%= activity.name %></span>
+  <%= link_to image_tag("map2.jpg", alt: "Rails", height: "50px", width: "50px"), 'https://maps.google.com/' %>
+  <span class="content"><%= activity.name %> <%= activity.activity_type %></span>
   <span class="timestamp">
-    Posted <%= time_ago_in_words(activity.created_at) %> ago.
+    Added <%= time_ago_in_words(activity.created_at) %> ago.
   </span>
 </li>

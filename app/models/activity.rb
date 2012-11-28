@@ -1,5 +1,5 @@
 class Activity < ActiveRecord::Base
-  attr_accessible :name, :upload, :type
+  attr_accessible :name, :upload, :activity_type
   belongs_to :user
 
   validates :name, presence: true
