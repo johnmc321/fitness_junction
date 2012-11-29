@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :activities, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
-  has_many :followed_users, through: :relationships, source: :followed
+  has_many :followed_users, through: :relationships, source: :followed # specifies the followed column in the relationships table as the source of the followed_users array
   has_many :reverse_relationships, foreign_key: "followed_id",
                                    class_name:  "Relationship",
                                    dependent:   :destroy
@@ -39,11 +39,11 @@ def feed
   end
 
    def following?(other_user)
-    relationships.find_by_followed_id(other_user.id)
+    relationships.find_by_followed_id(other_user.id) # takes in a user, called other_user, and checks to see if a followed user with that id exists in the database
   end
 
   def follow!(other_user)
-    relationships.create!(followed_id: other_user.id)
+    relationships.create!(followed_id: other_user.id) # the follow! method calls create! through the relationships association to create the following relationship
   end
 
   def unfollow!(other_user)

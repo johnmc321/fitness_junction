@@ -3,8 +3,13 @@ FitnessJunction::Application.routes.draw do
 
   get "activities/new"
 
-  resources :users
+   resources :users do
+    member do                     # the member method means that the routes respond to URLs containing the user id
+      get :following, :followers  # use get to arrange for the following & followers URLs to respond to GET requests
+    end
+  end
   resources :activities
+  resources :relationships, only: [:create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
   resources :uploads
 

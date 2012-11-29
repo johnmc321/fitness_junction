@@ -22,9 +22,15 @@
   <%= link_to "edit profile", edit_user_path(current_user) %>
 </span>
     </section>
+    <section>
+      <%= render 'shared/stats' %>
+      <%= render 'follow_form' if signed_in? %>
+    </section>
   </aside>
 
   <div class="span6">
+
+
     <% if @user.activities.any? %>
       <h3>Activities (<%= @user.activities.count %>)<%= link_to " add new activity", new_activity_path %></h3>
      
