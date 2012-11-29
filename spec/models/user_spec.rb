@@ -146,4 +146,34 @@ describe User do
       its(:followed_users) { should_not include(other_user) }
     end
   end
+
+  describe "activity associations" do
+    before { @user.save }
+    let!(:older_activity) do 
+      FactoryGirl.create(:activity, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_activity) do
+      FactoryGirl.create(:activity, user: @user, created_at: 1.hour.ago)
+    end
+    describe "status" do
+      let(:unfollowed_post) do
+        FactoryGirl.create(:activity, user: FactoryGirl.create(:user))
+      end
+      let(:followed_user) { FactoryGirl.create(:user) }
+
+      before do
+        @user.follow!(followed_user)
+        3.times { followed_user.activities.create!(content: "Lorem ipsum") }
+      end
+
+      its(:feed) { should include(newer_activity) }
+      its(:feed) { should include(older_activity) }
+      its(:feed) { should_not include(unfollowed_post) }
+      its(:feed) do
+        followed_user.activities.each do |activity|
+          should include(activity)
+        end
+      end
+    end
+  end
 end
