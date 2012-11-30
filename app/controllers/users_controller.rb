@@ -62,6 +62,13 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
+  def dashboard
+    @title = "Dashboard"
+    @user = User.find(params[:id])
+    @activity = current_user.activities.build
+    @feed_items = current_user.feed.paginate(page: params[:page])
+  end
+
   private
 
     

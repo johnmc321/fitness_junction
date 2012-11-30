@@ -1,0 +1,81 @@
+<% provide(:title, @user.name) %>
+<h1 class="center">Dashboard - <%= @user.name %></h1>
+<br/>
+       <br/>
+<div class="row-fluid">
+  <aside class="span2">
+    <section>
+      <h1>Profile</h1>
+      <p><%= @user.name %></p>
+       <a href="<%= user_path(current_user) %>">
+  <%= gravatar_for @user %>
+</a>
+ <br/>
+      <br/>
+      <br/>
+      <br/>
+       <br/>
+       <h6>Age:</h6>
+       <h6>Location:</h6>
+       <h6>Interests:</h6>
+
+       <span>
+  <%= link_to "edit profile", edit_user_path(current_user) %>
+</span>
+    </section>
+    <section>
+      <%= render 'shared/stats' %>
+      <%= render 'follow_form' if signed_in? %>
+    </section>
+  </aside>
+
+  <div class="span6">
+
+
+    <% if @user.activities.any? %>
+      <h3>Activities (<%= @user.activities.count %>)<%= link_to " add new activity", new_activity_path %></h3>
+     
+        <%= render 'shared/feed' %>
+      
+    
+    <% end %>
+  </div>
+
+  <aside class="span2 offset2">
+    <section>
+      <h1>Amigos</h1>
+      <%= link_to image_tag("person-logo.png", alt: "friend1"), '#' %>Friend1
+      <br/>
+      <br/>
+      <%= link_to image_tag("person-logo.png", alt: "friend1"), '#' %>Friend2
+      <br/>
+      <br/>
+      <%= link_to image_tag("person-logo.png", alt: "friend1"), '#' %>Friend3
+      <br/>
+      <br/>
+      
+    </section>
+  </aside>
+
+   <!--<aside class="span4  offset-1">
+    <section>
+      <h1>Recent Activities <%= link_to "Add New Activity", new_activity_path, class: "btn btn-small btn-success" %></h1>
+      Monday 21st November, 20km run
+<%= link_to image_tag("map3.jpg", alt: "Rails", height: "90px", width: "90px"), 'http://rubyonrails.org/' %> 
+<br/>
+<br/>
+Friday 26th November, 75km cycle
+<%= link_to image_tag("Google-Map-Route.jpg", alt: "Rails", height: "90px", width: "90px"), 'http://rubyonrails.org/' %>
+<br/>
+<br/>
+Sunday 27th November, Marathon
+<%= link_to image_tag("map2.jpg", alt: "Rails", height: "90px", width: "90px"), 'http://rubyonrails.org/' %>
+      
+      <br/>
+      
+      <br/>
+      
+    </section>
+  </aside>-->
+
+</div>

@@ -1,5 +1,5 @@
 class Activity < ActiveRecord::Base
-  attr_accessible :name, :upload, :activity_type
+  attr_accessible :name, :upload, :activity_type, :location, :duration, :distance, :date
   belongs_to :user
 
   validates :name, presence: true
