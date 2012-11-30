@@ -2,7 +2,7 @@ class Activity < ActiveRecord::Base
   attr_accessible :name, :upload, :activity_type, :location, :duration, :distance, :date
   belongs_to :user
 
-  validates :name, presence: true
+  validates :name, :activity_type, :location, :duration, :distance, :date, presence: true
   validates :user_id, presence: true
   has_attached_file :upload # not sure about this
   # specifying the sort order of the activities in descending order, from newest to oldest

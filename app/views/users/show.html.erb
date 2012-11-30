@@ -55,7 +55,7 @@
       <% end %>
      
         <% @user.activities.each do |activity| %>
-        <h5>Type:<%= activity.activity_type %></h5><span class="timestamp">
+        <h5>Type: <%= activity.activity_type %></h5><span class="timestamp">
     Added <%= time_ago_in_words(activity.created_at) %> ago.
   </span>
          <%= link_to image_tag("map2.jpg", alt: "Rails", height: "90px", width: "90px"), 'http://rubyonrails.org/' %>
@@ -74,7 +74,7 @@
               <td><%= activity.date %></td>
               <td><%= activity.location %></td>
               <td><%= activity.distance %>km</td>
-              <td><%= activity.duration %></td>
+              <td><%= activity.duration %>hrs</td>
             </tr>
           </table> 
         
