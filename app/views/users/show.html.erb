@@ -16,7 +16,10 @@
        <h6>Location:</h6>
        <h6>Interests:</h6>
        <h6>Clubs:</h6>
+       <% if current_user?(@user) %>
        <%= link_to "edit profile", edit_user_path(current_user) %>
+       <% end %>
+       <%= render 'follow_form' if signed_in? %>
        <br/>
         <br/>
       
@@ -52,26 +55,28 @@
       <% end %>
      
         <% @user.activities.each do |activity| %>
-        <h5>Type:<%= activity.activity_type %></h5>
+        <h5>Type:<%= activity.activity_type %></h5><span class="timestamp">
+    Added <%= time_ago_in_words(activity.created_at) %> ago.
+  </span>
          <%= link_to image_tag("map2.jpg", alt: "Rails", height: "90px", width: "90px"), 'http://rubyonrails.org/' %>
          <br/>
 
          <table class = "activity_details" >
-<tr>
-<th>Name</th>
-<th>Date</th>
-<th>Location</th>
-<th>Distance</th>
-<th>Duration</th>
-</tr>
-<tr>
-<td><%= activity.name %></td>
-<td><%= activity.date %></td>
-<td><%= activity.location %></td>
-<td><%= activity.distance %></td>
-<td><%= activity.duration %></td>
-</tr>
-</table> 
+            <tr>
+              <th>Name</th>
+              <th>Date</th>
+              <th>Location</th>
+              <th>Distance</th>
+              <th>Duration</th>
+            </tr>
+            <tr>
+              <td><%= activity.name %></td>
+              <td><%= activity.date %></td>
+              <td><%= activity.location %></td>
+              <td><%= activity.distance %>km</td>
+              <td><%= activity.duration %></td>
+            </tr>
+          </table> 
         
         
         <% end %>
@@ -85,9 +90,9 @@
      <section id = "friends_sidebar">
       <h4>Friends</h4>
       <%= render 'shared/stats' %>
-      <%= render 'follow_form' if signed_in? %>
+      
     
-      <%= link_to image_tag("person-logo.png", alt: "friend1"), user_path(3) %>Friend1
+      <%= link_to image_tag("person-logo.png", alt: "friend1"), user_path(1) %>Friend1
       <br/>
       <br/>
       <%= link_to image_tag("person-logo.png", alt: "friend1"), user_path(102) %>Friend2
