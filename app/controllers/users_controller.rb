@@ -66,7 +66,7 @@ class UsersController < ApplicationController
     @title = "Dashboard"
     @user = User.find(params[:id])
     @activity = current_user.activities.build
-    @feed_items = current_user.feed.paginate(page: params[:page])
+    @feed_items = current_user.feed.paginate(page: params[:page])  #feed defined in user.rb as all activities from users followed by user
   end
 
   private

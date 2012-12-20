@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
 
 
 def feed
-    Activity.from_users_followed_by(self)
+    Activity.from_users_followed_by(self)  # from_users_followed_by method defined in activity.rb
   end
 
    def following?(other_user)
