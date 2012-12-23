@@ -7,13 +7,13 @@ class ActivitiesController < ApplicationController
 	def show
     john = Nokogiri::XML(File.read("training2.xml"))
 
-    @trackpoints = john.xpath('//xmlns:trkpt')
+    @test_trackpoint = john.xpath('//xmlns:trkpt')
 
 
-    @trackpoints.each do |trkpt|
+    @test_trackpoint.each do |test_trkpt|
 
-      @lat = trkpt.xpath('@lat').to_s.to_f
-      @lon = trkpt.xpath('@lon').to_s.to_f
+      @lat_test = test_trkpt.xpath('@lat_test').to_s.to_f
+      @lon_test = test_trkpt.xpath('@lon_test').to_s.to_f
 
 
     end
