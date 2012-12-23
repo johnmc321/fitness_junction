@@ -1,0 +1,45 @@
+
+# Rails Environment Configuration.
+
+Your git configuration is incomplete.
+user.name and user.email are required for properly using git and services such
+as GitHub ( http://github.com/ ).
+
+ Please enter your name, for example mine is: Wayne E. Seguin
+name > John McCormack
+Setting user.name to John McCormack
+
+ Please enter your email address, for example mine is: wayneeseguin@gmail.com
+email > jmccormack321@gmail.com
+Setting user.email to jmccormack321@gmail.com
+
+---
+git:
+  user.name:  John McCormack
+  user.email: jmccormack321@gmail.com
+  version:    git version 1.7.9.msysgit.0
+
+ruby:
+  bin:        C:/RailsInstaller/Ruby1.9.2/bin/ruby.exe
+  version:    ruby 1.9.3p125 (2012-02-16) [i386-mingw32]
+
+rails:
+  bin:        C:/RailsInstaller/Ruby1.9.2/bin/rails.bat
+  version:    Rails 3.2.1
+
+ssh:
+  public_key_location: C:\Users\John McCormack/.ssh/id_rsa.pub
+  public_key_contents: ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA2ydh+CC7BN6GkY44KDXRP
+7ZChNc3xeQjaIO5G3WZjrZ997TqNqlHobjewxm/Lo/W1IeWsD8k1KuaUc17cUEwrjR+1qzFbfuipqC0M
+4RLOCQ0RNIGmiEOlVGIDeD+UTqvgHE9soMC1TLurhpA5S4pTd9EJGWT6PLFnqBya/ECnKiWQ94xFolc7
+H8ZhHLbQITyDFD9/nFGD8bQ7jChKKNPV/dNDGImYUiiQyhWjdYih1SimsTeLVs8qV9rZ7l6aTlMSlfr9
+86qKkYBQywVez2wuIbJB1wpp6MvHhsOJ+0NwMyZzBMohrpq+z2x0JaD93yno3HpcPhQhkMYUITNu3QAJ
+Q== John McCormack <jmccormack321@gmail.com>
+
+
+NOTES:
+
+  Your public ssh key (id_rsa.pub) has been automatically generated and copied t
+o your clipboard.
+
+C:\Sites>
