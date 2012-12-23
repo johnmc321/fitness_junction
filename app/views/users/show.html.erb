@@ -5,63 +5,63 @@
 <div class="row-fluid">
   <aside class="span2">
     <section id="profile_sidebar">
-       <h4>About Me</h4> 
-       <%= gravatar_for @user %>
-       <br/>
-       <br/>
-       <br/>
-       <br/>
-       <br/>
-       <h6>Age:</h6>
-       <h6>Location:</h6>
-       <h6>Interests:</h6>
-       <h6>Clubs:</h6>
-       <% if current_user?(@user) %>
-       <%= link_to "edit profile", edit_user_path(current_user) %>
-       <% end %>
-       <%= render 'follow_form' if signed_in? %>
-       <br/>
-        <br/>
-      
+      <h4>About Me</h4>
+      <%= gravatar_for @user %>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <h6>Age:</h6>
+      <h6>Location:</h6>
+      <h6>Interests:</h6>
+      <h6>Clubs:</h6>
+      <% if current_user?(@user) %>
+          <%= link_to "edit profile", edit_user_path(current_user) %>
+      <% end %>
+      <%= render 'follow_form' if signed_in? %>  <!-- follow_form partial renders either the follow or unfollow partials-->
+      <br/>
+      <br/>
+
 
       <h4>Photos</h4>
-        
-        <p><%= image_tag("run.jpg", alt: "record") %></p>
-        <p><%= image_tag("cows.jpg", alt: "record") %></p>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-       <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
+
+      <p><%= image_tag("run.jpg", alt: "record") %></p>
+      <p><%= image_tag("cows.jpg", alt: "record") %></p>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
 
 
-    
+
     </section>
-   
+
   </aside>
 
   <div class="span6">
 
 
-    
-      <h4>Activities (<%= @user.activities.count %>)  
+
+    <h4>Activities (<%= @user.activities.count %>)
 
       <% if current_user?(@user) %>    <%= link_to "New Activity", new_upload_path, class: "btn btn-medium btn-success" %></h4>
       <% end %>
-     
-        <% @user.activities.each do |activity| %>
-        <h5>Type: <%= activity.activity_type %></h5><span class="timestamp">
+
+      <% @user.activities.each do |activity| %>
+          <h5>Type: <%= activity.activity_type %></h5><span class="timestamp">
     Added <%= time_ago_in_words(activity.created_at) %> ago.
   </span>
-         <%= link_to image_tag("map2.jpg", alt: "Rails", height: "90px", width: "90px"), 'http://rubyonrails.org/' %>
-         <br/>
+          <%= link_to image_tag("map2.jpg", alt: "Rails", height: "90px", width: "90px"), 'http://rubyonrails.org/' %>
+          <br/>
 
-         <table class = "activity_details" >
+          <table class = "activity_details" >
             <tr>
               <th>Name</th>
               <th>Date</th>
@@ -76,22 +76,23 @@
               <td><%= activity.distance %>km</td>
               <td><%= activity.duration %>hrs</td>
             </tr>
-          </table> 
-        
-        
-        <% end %>
-      
-    
-  
-  </div>
+          </table>
+
+
+      <% end %>
+
+
+
+      </div>
 
   <aside class="span2 offset2">
 
-     <section id = "friends_sidebar">
+    <section id = "friends_sidebar">
       <h4>Friends</h4>
-      <%= render 'shared/stats' %>
-      
-    
+
+      <%= render 'shared/stats' %>      <!-- shows number of followers & following -->
+
+
       <%= link_to image_tag("person-logo.png", alt: "friend1"), user_path(1) %>Friend1
       <br/>
       <br/>
@@ -101,15 +102,15 @@
       <%= link_to image_tag("person-logo.png", alt: "friend1"), user_path(103) %>Friend3
       <br/>
       <br/>
-      
+
     </section>
   </aside>
 
-   <!--<aside class="span4  offset-1">
+  <!--<aside class="span4  offset-1">
     <section>
       <h1>Recent Activities <%= link_to "Add New Activity", new_activity_path, class: "btn btn-small btn-success" %></h1>
       Monday 21st November, 20km run
-<%= link_to image_tag("map3.jpg", alt: "Rails", height: "90px", width: "90px"), 'http://rubyonrails.org/' %> 
+<%= link_to image_tag("map3.jpg", alt: "Rails", height: "90px", width: "90px"), 'http://rubyonrails.org/' %>
 <br/>
 <br/>
 Friday 26th November, 75km cycle
@@ -118,11 +119,11 @@ Friday 26th November, 75km cycle
 <br/>
 Sunday 27th November, Marathon
 <%= link_to image_tag("map2.jpg", alt: "Rails", height: "90px", width: "90px"), 'http://rubyonrails.org/' %>
-      
+
       <br/>
-      
+
       <br/>
-      
+
     </section>
   </aside>-->
 

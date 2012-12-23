@@ -1,0 +1,39 @@
+
+ 
+<p>
+  <b>Name:</b>
+  <%= @trackpoint.latitude %>
+</p>
+ <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=d&amp;source=s_d&amp;saddr=Kiltybranks,+Ireland&amp;daddr=Kilmovee,+Ireland+to:53.820749,-8.6223672+to:Williamstown,+Ireland+to:Carrick-On-Shannon,+Ireland+to:Monasteraden,+Ireland+to:Ballaghaderreen,+Ireland&amp;hl=en&amp;geocode=FST2NQMdUKx8_ymtmDLY_qVeSDFb5myWlVGV_A%3BFVpFNgMdr217_yktIWrk5K5eSDEg7jGXqccACg%3BFU09NQMd4W58_yk74kpdi6heSDFRsdP10OE80g%3BFZgOMwMdhBR9_ynVD4fglwRcSDGwlzGXqccACg%3BFWQjNwMd7p-E_ynbCRceqoVeSDHVBnhxuludXA%3BFbMdNwMdNV5-_ynLt4vtRKNeSDGAFDKXqccACg%3BFYF5NgMddRd9_ymZdmRapKVeSDFw2zGXqccACg&amp;aq=0&amp;oq=ba&amp;sll=53.829028,-8.383942&amp;sspn=0.444161,1.229095&amp;mra=dpe&amp;mrsp=2&amp;sz=10&amp;via=2&amp;ie=UTF8&amp;ll=53.829028,-8.383942&amp;spn=0.444161,1.229095&amp;t=m&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/maps?f=d&amp;source=embed&amp;saddr=Kiltybranks,+Ireland&amp;daddr=Kilmovee,+Ireland+to:53.820749,-8.6223672+to:Williamstown,+Ireland+to:Carrick-On-Shannon,+Ireland+to:Monasteraden,+Ireland+to:Ballaghaderreen,+Ireland&amp;hl=en&amp;geocode=FST2NQMdUKx8_ymtmDLY_qVeSDFb5myWlVGV_A%3BFVpFNgMdr217_yktIWrk5K5eSDEg7jGXqccACg%3BFU09NQMd4W58_yk74kpdi6heSDFRsdP10OE80g%3BFZgOMwMdhBR9_ynVD4fglwRcSDGwlzGXqccACg%3BFWQjNwMd7p-E_ynbCRceqoVeSDHVBnhxuludXA%3BFbMdNwMdNV5-_ynLt4vtRKNeSDGAFDKXqccACg%3BFYF5NgMddRd9_ymZdmRapKVeSDFw2zGXqccACg&amp;aq=0&amp;oq=ba&amp;sll=53.829028,-8.383942&amp;sspn=0.444161,1.229095&amp;mra=dpe&amp;mrsp=2&amp;sz=10&amp;via=2&amp;ie=UTF8&amp;ll=53.829028,-8.383942&amp;spn=0.444161,1.229095&amp;t=m" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+<p>
+  <b>Title:</b>
+  <%= @trackpoint.longitude %>
+</p>
+ 
+<%= gmaps({
+    "map_options" => { "type" => "TERRAIN", "center_latitude" => 0, "center_longitude" => 180, "zoom" => 3, "auto_adjust" => true},
+    "markers"     => { "data" => '[{ "description": "test_description", "title": "test_title", "lng": "55.9311119", "lat": "23.1251606", "picture": "compete2.png", "width": "35", "height": "25" } ,{ "description": "", "title": "", "lng": "2.3509871", "lat": "48.8566667", "picture": "", "width": "", "height": "" } ]',
+                                         },
+    "polylines"   => { "data" => ' [ [
+                         {"lng": -6.428389325737953, "lat": 53.348903115838766},
+                         {"lng": -6.428440790623426, "lat": 53.34885056130588},
+                         {"lng": -6.428495524451137, "lat": 53.34875861182809},
+                         {"lng": -6.428530141711235, "lat": 53.3486407622695},
+                         {"lng": -6.428605075925589, "lat": 53.34841403178871},
+                         {"lng": -6.429204801097512, "lat": 53.34966218098998},
+                         {"lng": -6.4277946297079325, "lat": 53.35192906670272},
+                         {"lng": -6.427453653886914, "lat": 53.352670865133405},
+                         {"lng": -6.426297957077622, "lat": 53.35405991412699},
+                         {"lng": -6.424547228962183, "lat": 53.354489486664534},
+                         ]
+                         ]' },
+     "polygons"    => { "data" => '[ [
+                         {"lng": -80.190262, "lat": 25.774252}, 
+                         {"lng": -66.118292, "lat": 18.466465},
+                         {"lng": -64.75737, "lat": 32.321384}
+                         ] ]' },
+     "direction"   => { "data"    => { "from" => "dublin, ireland", "to" => "dublin, ireland"} ,
+                        "options" => {"waypoints" => ["kilcock, ireland", "ballivor, ireland", "trim, ireland"], "travelMode" => "WALKING", "display_panel" => true, "panel_id" => "instructions"}
+ }
+    })
+    %>

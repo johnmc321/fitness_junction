@@ -1,3 +1,6 @@
+<!-- shows the follow button and creates a relationship between current user and user being viewed -->
+<!-- this partial is rendered on the user/show page via the _follow_form partial -->
+
 <%= form_for(current_user.relationships.build(followed_id: @user.id), remote: true) do |f| %> <!-- remote: true tells Rails to use Ajax to handle the form-->
   <div><%= f.hidden_field :followed_id %></div>
   <%= f.submit "Follow", class: "btn btn-large btn-primary" %>

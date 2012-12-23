@@ -12,6 +12,7 @@ FitnessJunction::Application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
   resources :uploads
+  resources :trackpoints
 
 
   root to: 'static_pages#home'

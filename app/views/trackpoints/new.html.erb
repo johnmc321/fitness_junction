@@ -1,0 +1,24 @@
+
+
+<div class="center hero-unit">
+<h1>New trackpoint</h1>
+<p class="center">
+ 
+</p>
+<div class="row">
+  <div class="span4 offset4">
+    <%= form_for @trackpoint, :html => { :multipart => true} do |t| %>
+    
+<%= render 'shared/error_messages', object: t.object %>
+      <%= t.label :latitude %>
+      <%= t.text_field :latitude %>
+      <%= t.label :longitude %>
+      <%= t.text_field :longitude %>      
+      <br/>
+      
+
+      <%= t.submit "Add", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
+</div>

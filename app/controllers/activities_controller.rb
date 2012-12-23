@@ -5,7 +5,18 @@ class ActivitiesController < ApplicationController
   require 'nokogiri'
 
 	def show
-    john = Nokogiri::XML(File.read("training.xml"))
+    john = Nokogiri::XML(File.read("training2.xml"))
+
+    @test_trackpoint = john.xpath('//xmlns:trkpt')
+
+
+    @test_trackpoint.each do |test_trkpt|
+
+      @lat_test = test_trkpt.xpath('@lat_test').to_s.to_f
+      @lon_test = test_trkpt.xpath('@lon_test').to_s.to_f
+
+
+    end
 
     @test = john.xpath("//TotalTimeSeconds")
     @test1 = john.xpath("//Name")

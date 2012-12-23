@@ -1,3 +1,4 @@
+<!-- feed_items variable defined in user controller as a feed of all activities from users followed by the current user-->
 <% if @feed_items.any? %>
   <ol class="activities">
     <%= render partial: 'shared/feed_item', collection: @feed_items %>
