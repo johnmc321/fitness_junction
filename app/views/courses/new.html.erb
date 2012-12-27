@@ -1,0 +1,21 @@
+
+<div class="center hero-unit">
+<h1>New course</h1>
+<p class="center">
+ 
+</p>
+<div class="row">
+  <div class="span4 offset4">
+    <%= form_for @course, :html => { :multipart => true} do |c| %>
+    
+<%= render 'shared/error_messages', object: c.object %>
+      <%= c.label :user_id %>
+      <%= c.text_field :user_id %>      
+      <br/>
+      
+
+      <%= c.submit "Add", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
+</div>
