@@ -6,23 +6,23 @@ class ActivitiesController < ApplicationController
 
 	def show
     john = Nokogiri::XML(File.read("training2.xml"))
-
-    @test_trackpoint = john.xpath('//xmlns:trkpt')
-
-
-    @test_trackpoint.each do |test_trkpt|
-
-      @lat_test = test_trkpt.xpath('@lat_test').to_s.to_f
-      @lon_test = test_trkpt.xpath('@lon_test').to_s.to_f
+    # @test_trackpoint = []
+    # @trackpoints = @john.xpath('//xmlns:trkpt')
 
 
-    end
+    # @test_trackpoint.each do |test_trkpt|
 
-    @test = john.xpath("//TotalTimeSeconds")
-    @test1 = john.xpath("//Name")
+     # @lat_test = test_trkpt.xpath('@lat_test').to_s.to_f
+     # @lon_test = test_trkpt.xpath('@lon_test').to_s.to_f
+
+
+    # end
+    john.remove_namespaces!
+    @test = john.xpath("//desc")
+    @test1 = john.xpath("//name")
     @test2 = john.xpath("//DistanceMeters")
-
-   
+    @trackp = john.xpath("//trkpt").first['lon']
+    # @trackp_lon = john.xpath("//lon")
   end
 
   def new
