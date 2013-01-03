@@ -1,3 +1,12 @@
+
+
+LONG: <%= @longitude_points[0] %>
+LAT: <%= @latitude_points[0] %>
+
+<p>course_trackpoints: <%= @course_trackpoints %></p>
+<p>course_polylines: <%= @course_polylines %></p>
+
+
 <%= gmaps({
        "polylines"    => { "data" => @course_polylines }
      })

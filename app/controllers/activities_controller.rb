@@ -21,7 +21,9 @@ class ActivitiesController < ApplicationController
     @test = john.xpath("//desc")
     @test1 = john.xpath("//name")
     @test2 = john.xpath("//DistanceMeters")
-    @trackp = john.xpath("//trkpt").first['lon']
+    @trackp = john.xpath("//@lon")
+    @lattrackp = john.xpath("//@lat")
+    # @two_together = john.xpath("//[@lon and @lat]")
     # @trackp_lon = john.xpath("//lon")
   end
 
