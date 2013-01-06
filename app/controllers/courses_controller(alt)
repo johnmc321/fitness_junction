@@ -1,0 +1,15 @@
+@lng = []
+		@lat = []
+
+		@longitude_points.each do |t|
+			@lng << t.value  # ?? need to pass each pair of long & lat together separated by a comma??
+		end
+
+		# @course.trackpoints.each do |t|
+		#	@course_trackpoints << { :lng => t[:longitude], :lat => t[:latitude]}
+		
+		@latitude_points.each do |u|
+			@lat << u.value
+		end
+
+		@course_trackpoints << { :lng => @lng, :lat => @lat}
