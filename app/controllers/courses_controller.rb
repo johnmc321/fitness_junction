@@ -35,22 +35,31 @@ class CoursesController < ApplicationController
 		@longitude_points = @longitude_points
 		@latitude_points = @latitude_points
 
+
+@maybe = map_course.xpath("//trkpt")
+    @maybemaybe = @maybe.map do |n|
+      n.values
+    end
+
+
 		#@course.trackpoints.create(:longitude => @longitude_points, :latitude => @latitude_points)
 		@course_polylines =[]
 		@course_trackpoints = []
 
-		@longitude_points.each do |t|
-			@course_trackpoints << { :lng => t.value } # ?? need to pass each pair of long & lat together separated by a comma??
-		end
+		#@longitude_points.each do |t|
+		#	@course_trackpoints << { :lng => t.value } # ?? need to pass each pair of long & lat together separated by a comma??
+		#end
 
 # @course.trackpoints.each do |t|
 		#	@course_trackpoints << { :lng => t[:longitude], :lat => t[:latitude]}
 		
-		@latitude_points.each do |u|
-			@course_trackpoints << { :lat => u.value}
+		#@latitude_points.each do |u|
+		#	@course_trackpoints << { :lat => u.value}
+		#end
+		@maybemaybe.each do |long, lat|
+			@course_trackpoints << { :lng => long, :lat => lat}
 		end
-
-		@course_trackpoints << { :lng => @longitude_points[0].value, :lat => @latitude_points[0].value}
+		#@course_trackpoints << { :lng => @longitude_points[0].value, :lat => @latitude_points[0].value}
 		@course_polylines << @course_trackpoints
 		@course_polylines = @course_polylines.to_json
 		respond_to do |format|

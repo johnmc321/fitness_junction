@@ -18,12 +18,20 @@ class ActivitiesController < ApplicationController
 
     # end
     john.remove_namespaces!
+    @yo = john.xpath("//trkpt")
+    @yoyo = @yo.map do |n|
+      n.values
+    end
+
+    @addresses = john.css('trkpt').map do |trkpt|
+  trkpt.xpath( './/text()' ).map{ |node| node.text }
+end
     @test = john.xpath("//desc")
     @test1 = john.xpath("//name")
     @test2 = john.xpath("//DistanceMeters")
     @trackp = john.xpath("//@lon")
     @lattrackp = john.xpath("//@lat")
-    # @two_together = john.xpath("//[@lon and @lat]")
+    @two_together = @trackp.zip(@lattrackp)  #john.xpath("//[@lon and @lat]")
     # @trackp_lon = john.xpath("//lon")
   end
 
