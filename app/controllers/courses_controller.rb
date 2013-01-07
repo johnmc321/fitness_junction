@@ -24,12 +24,19 @@ class CoursesController < ApplicationController
 	#	@latitude_points = map_course.xpath("//@lat")
 
 	#end
+
+
+
 	def show
 		@course = Course.find(params[:id])
 		map_course = Nokogiri::XML(File.read("training2.xml"))
 		map_course.remove_namespaces!
 		#@longitude_points = []
 		#@latitude_points = []
+		@markers =[]
+		@first_array = []
+		@last_array = []
+		#@joined_array = []
 		@longitude_points = map_course.xpath("//@lon")
 		@latitude_points = map_course.xpath("//@lat")
 		@longitude_points = @longitude_points
@@ -59,9 +66,24 @@ class CoursesController < ApplicationController
 		@maybemaybe.each do |long, lat|
 			@course_trackpoints << { :lng => long, :lat => lat}
 		end
-		#@course_trackpoints << { :lng => @longitude_points[0].value, :lat => @latitude_points[0].value}
+		#@markers << { :lng => @maybemaybe[0], :lat => @maybemaybe[-1]}
+		
 		@course_polylines << @course_trackpoints
 		@course_polylines = @course_polylines.to_json
+		@first_array = @maybemaybe[0]
+		@last_array = @maybemaybe[-1]
+
+		#@hash1 = { :lng => @first_array[0], :lat => @first_array[1]}
+		#@hash2 = { :lng => @last_array[0], :lat => @last_array[1]}
+
+		@markers = [{ :title => "start", :lng => @first_array[0], :lat => @first_array[1]},{ :title => "finish", :lng => @last_array[0], :lat => @last_array[1]}]
+
+		@markers = @markers.to_json
+
+		#@joined_array << @first_array
+		#@joined_array << @last_array
+		#@joined_array = @joined_array.to_json
+
 		respond_to do |format|
 			format.html
 			format.json { render json: @course}

@@ -1,3 +1,5 @@
+<%= @markers %>
+
 <%= @maybemaybe %>
 
 LONG: <%= @longitude_points[0] %>
@@ -8,6 +10,7 @@ LAT: <%= @latitude_points[0] %>
 
 
 <%= gmaps({
+       "markers"	=> { "data" => @markers}, "options" => {"rich_marker" => true },
        "polylines"    => { "data" => @course_polylines }
      })
  %>
