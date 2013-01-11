@@ -29,7 +29,7 @@ class CoursesController < ApplicationController
 
 	def show
 		@course = Course.find(params[:id])
-		map_course = Nokogiri::XML(File.read("training2.xml"))
+		map_course = Nokogiri::XML(File.read("training3.xml"))
 		map_course.remove_namespaces!
 		#@longitude_points = []
 		#@latitude_points = []

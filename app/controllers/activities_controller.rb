@@ -5,7 +5,7 @@ class ActivitiesController < ApplicationController
   require 'nokogiri'
 
 	def show
-    john = Nokogiri::XML(File.read("training2.xml"))
+    john = Nokogiri::XML(File.read("training3.xml"))
     # @test_trackpoint = []
     # @trackpoints = @john.xpath('//xmlns:trkpt')
 
@@ -53,6 +53,23 @@ end
      @activity.destroy
     redirect_to user_path(current_user)
   end
+
+  def upload
+    # ref: http://stackoverflow.com/questions/2521053/how-to-read-a-user-uploaded-file-without-saving-it-to-the-database
+    file_data = params[:file]
+      if file_data.respond_to?(:read)
+        xml_contents = file_data.read
+      elsif file_data.respond_to?(:path)
+        xml_contents = File.read(file_data.path)
+      else
+        logger.error "Bad file_data: #{file_data.class.name}: #{file_data.inspect}"
+      end
+
+      @joe = file_data
+      @jim = file_data.path
+      @jean = xml_contents
+  end
+
 
   private
 
