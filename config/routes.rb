@@ -11,7 +11,7 @@ FitnessJunction::Application.routes.draw do
   resources :activities
   resources :relationships, only: [:create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
-  resources :uploads
+  #resources :uploads
   resources :trackpoints
   resources :courses
 
@@ -23,7 +23,8 @@ FitnessJunction::Application.routes.draw do
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
-  match'activities/activity/upload', to: 'activities#upload'
+  # match'activities/activity/upload', to: 'activities#upload'
+  match '/upload', to: 'courses#upload'
 
 
   # The priority is based upon order of creation:

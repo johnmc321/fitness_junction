@@ -1,16 +1,20 @@
-<%= @markers %>
+<h1><%= @course.trackpoints %></h1>
 
-<%= @maybemaybe %>
+<h4>At Course:<%= @course %></h4>
+<h4>Course id: <%= @course.id %></h4>
+<h4>Course latitude: <%= @course.latitude %></h4>
+<h4>Course longitude: <%= @course.longitude %></h4>
+<h4>Course gmaps: <%= @course.gmaps %></h4>
+	
 
-LONG: <%= @longitude_points[0] %>
-LAT: <%= @latitude_points[0] %>
 
 <p>course_trackpoints: <%= @course_trackpoints %></p>
 <h1>course_polylines: <%= @course_polylines %></h1>
 
-
+<div id="mapCanvas">
 <%= gmaps({
-       "markers"	=> { "data" => @markers}, "options" => {"rich_marker" => true },
        "polylines"    => { "data" => @course_polylines }
      })
  %>
+
+</div>
