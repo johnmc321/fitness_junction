@@ -11,7 +11,7 @@ FitnessJunction::Application.routes.draw do
   resources :activities
   resources :relationships, only: [:create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
-  #resources :uploads
+  resources :uploads
   resources :trackpoints
   resources :courses
 
