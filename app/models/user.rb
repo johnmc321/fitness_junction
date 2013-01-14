@@ -10,7 +10,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password, :password_confirmation
+  attr_accessible :email, :name, :password, :password_confirmation, :photo
   has_secure_password
   has_many :activities, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
                                    class_name:  "Relationship",
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
+  has_attached_file :photo
 
   # callback methods
   before_save { |user| user.email = email.downcase }

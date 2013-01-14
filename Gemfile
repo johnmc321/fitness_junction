@@ -42,6 +42,8 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '1.2.3'
+  
+  # to add progress bar when uploading files
   gem 'jquery-fileupload-rails'
 end
 

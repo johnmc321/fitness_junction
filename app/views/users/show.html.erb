@@ -6,12 +6,14 @@
   <aside class="span2">
     <section id="profile_sidebar">
       <h4>About Me</h4>
-      <%= gravatar_for @user %>
+      <% if @user.photo.file? %>
+        <%= image_tag @user.photo %>
+      <% else %>
+        <p><%= link_to "Add", edit_user_path(current_user) %> Profile Photo</p>
+      <% end %>
+      <!--<%= gravatar_for @user %>-->
       <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
+     
       <h6>Age:</h6>
       <h6>Location:</h6>
       <h6>Interests:</h6>
@@ -25,9 +27,10 @@
 
 
       <h4>Photos</h4>
+      <%= image_tag @user.photo %>
 
-      <p><%= image_tag("run.jpg", alt: "record") %></p>
-      <p><%= image_tag("cows.jpg", alt: "record") %></p>
+      
+
       <br/>
       <br/>
       <br/>

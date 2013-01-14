@@ -1,8 +1,9 @@
 <% provide(:title, "Edit user") %> 
-<h1>Update your profile</h1>
+<div class="center hero-unit">
+<h2>Update your profile</h2>
 
 <div class="row">
-  <div class="span6 offset3">
+  <div class="span4 offset4">
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
@@ -18,10 +19,20 @@
       <%= f.label :password_confirmation, "Confirm Password" %>
       <%= f.password_field :password_confirmation %>
 
+      <%= f.label :Add_or_Update_Profile_Photo %>
+      <%= f.file_field :photo %>
+      <br/>
+
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+      <%= link_to "Cancel", current_user, class: "btn btn-small btn-info" %>
     <% end %>
 
-    <%= gravatar_for @user %>
-    <a href="http://gravatar.com/emails">change</a>
+    <!-- hiding Gravatar image link. Probably replace this with the profile photo uploader. -->
+    <!--<%= gravatar_for @user %>
+    <p>Change <a href="http://gravatar.com/emails">Gravatar </a>image.</p>-->
+
+    
   </div>
+
+</div>
 </div>

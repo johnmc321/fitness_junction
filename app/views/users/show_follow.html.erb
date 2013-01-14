@@ -1,10 +1,14 @@
 <% provide(:title, @title) %>
 <div class="row">
-  <aside class="span4">
+  <aside class="span3">
     <section>
-      <%= gravatar_for @user %>
+      <% if @user.photo.file? %>
+        <%= image_tag @user.photo %>
+      <% else %>
+        <p><%= @user.name %>
+      <% end %>
       <h1><%= @user.name %></h1>
-      <span><%= link_to "view my profile", @user %></span>
+      <span><%= link_to "return to my profile", @user %></span>
       <span><b>Activities:</b> <%= @user.activities.count %></span>
     </section>
     <section>
@@ -20,6 +24,7 @@
   </aside>
   <div class="span8">
     <h3><%= @title %></h3>
+    <%= render 'shared/stats' %>
     <% if @users.any? %>
       <ul class="users">
         <%= render @users %>
