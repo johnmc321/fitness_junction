@@ -37,6 +37,8 @@ class CoursesController < ApplicationController
       n.values
     end
 
+    # @elevation = map_course.xpath("//ele")
+
     @course = Course.new
 
 
@@ -96,9 +98,9 @@ class CoursesController < ApplicationController
 		#@hash1 = { :lng => @first_array[0], :lat => @first_array[1]}
 		#@hash2 = { :lng => @last_array[0], :lat => @last_array[1]}
 
-		#@markers = [{ :title => "start", :lng => @first_array[0], :lat => @first_array[1]},{ :title => "finish", :lng => @last_array[0], :lat => @last_array[1]}]
+		@markers = [@course_trackpoints[0], @course_trackpoints[-1]]
 
-		#@markers = @markers.to_json
+		@markers = @markers.to_json
 
 		#@joined_array << @first_array
 		#@joined_array << @last_array

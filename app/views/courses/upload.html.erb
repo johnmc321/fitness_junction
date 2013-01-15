@@ -1,7 +1,12 @@
-courses uploads
-File Uploaded!!
+<div class="center hero-unit">
 
-Click here to view...<%= link_to "here ", course_path(@course) %>
+<h2>File Uploaded!!</h2>
+<h5>Course ID: <%= @course.id %></h5>
+
+<p class="center">
+
+Click <%= link_to "here ", course_path(@course) %>to view...</p>
+
+<!--<h2>Ele<%= @elevation %></h2>-->
 
 
-<h2>ID: <%= @course.id %></h2>

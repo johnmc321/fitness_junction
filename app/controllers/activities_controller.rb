@@ -66,7 +66,7 @@ end
       end
 
       @joe = file_data
-      @jim = file_data.path
+      @jim = file_data.original_filename
       @jean = xml_contents
   end
 
