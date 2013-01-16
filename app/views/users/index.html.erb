@@ -1,7 +1,22 @@
 <% provide(:title, 'All users') %>
-<h1>All users</h1>
+<div class="center">
+<h2>Users</h2>
+</div>
 
 <%= will_paginate %>
+
+<div class="row">
+	<div class="span3 offset0">
+<%= form_tag users_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search], {:size => 5, :placeholder => 'search by user name...'} %>
+    <%= submit_tag "Search", :name => nil, class: "btn btn-small btn-primary" %>
+  </p>
+<% end %>
+
+
+</div>
+</div>
 
 <ul class="users">
   <%= render @users %> <!-- renders the _user partial -->
@@ -9,4 +24,9 @@
 </ul>
 
 <%= will_paginate %>
+
+
+
+
+
 

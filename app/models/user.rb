@@ -50,6 +50,14 @@ def feed
     relationships.find_by_followed_id(other_user.id).destroy
   end
 
+  def self.search(search)
+  if search
+    where 'name LIKE ?', "%#{search}%"
+  else
+    scoped
+  end
+end
+
   private
       # use the urlsafe_base64 method from the SecureRandom Ruby library module  to create the token
       def create_remember_token

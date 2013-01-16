@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require raphael
+//= require morris
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
 //= require bootstrap
