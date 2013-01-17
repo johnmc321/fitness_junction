@@ -57,6 +57,8 @@
       <% if current_user?(@user) %>    <%= link_to "New Activity", new_activity_path, class: "btn btn-medium btn-success" %></h4>
       <% end %>
 
+      <%= link_to "Dashboard", dashboard_user_path(current_user) %>
+
       <% @user.activities.each do |activity| %>
           <h5>Type: <%= activity.activity_type %></h5><span class="timestamp">
     Added <%= time_ago_in_words(activity.created_at) %> ago.
