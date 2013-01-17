@@ -42,7 +42,10 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '1.2.3'
-  
+
+  # calendar date picker
+  gem 'jquery-ui-rails'
+
   # to add progress bar when uploading files
   gem 'jquery-fileupload-rails'
 end

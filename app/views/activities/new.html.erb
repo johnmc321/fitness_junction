@@ -9,7 +9,7 @@
     
 <%= render 'shared/error_messages', object: f.object %>
       <%= f.label :type %>
-      <%= f.text_field :activity_type %>
+      <%= f.select :activity_type, options_for_select(["Bike Ride","Jog","Run","Swim"],["Run"]) %>
       <%= f.label :name %>
       <%= f.text_field :name %>
       <%= f.label :location %>
