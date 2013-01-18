@@ -29,7 +29,13 @@ class CoursesController < ApplicationController
 	    @trkpt_attribute_values = @trkpt_elements.map do |n| #... and maps each value from those elements
 	      n.values
 	    end
-		
+
+	    @ele = map_course.xpath("//ele")
+		@elevations = @ele.map do |e|
+			e.text
+		end
+
+
 		@course = Course.new
 
 		@trkpt_attribute_values.each do |long, lat| # @trkpt_attribute_values is an array of arrays

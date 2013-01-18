@@ -1,3 +1,5 @@
+<div id="annual"></div>
+
 <h1>trackpoints</h1>
  
 <table>
@@ -6,16 +8,9 @@
     <th>Long</th>
   </tr>
  
-<% @trackpoints.each do |trackpoint| %>
-  <tr>
-    <td><%= trackpoint.latitude %></td>
-    <td><%= trackpoint.longitude %></td>
-  </tr>
-<% end %>
-</table>
+
  
 <%= link_to 'New trackpoint', new_trackpoint_path %>
 
 <br />
  
-<%= gmaps4rails(@json) %>

@@ -6,7 +6,7 @@
 <p class="center">
 
 Click <%= link_to "here ", course_path(@course) %>to view...</p>
-
-<!--<h2>Ele<%= @elevation %></h2>-->
+<%= content_tag :div, "", id: "elevation_profile", data: {elevations: @elevations} %>
+<h2>Ele<%= @elevations %></h2>
 
 

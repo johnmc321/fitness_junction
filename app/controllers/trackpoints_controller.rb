@@ -1,7 +1,6 @@
 class TrackpointsController < ApplicationController
 	def index
   		@trackpoints = Trackpoint.all
-  		@json = Trackpoint.all.to_gmaps4rails
 	end
 
 	def new
