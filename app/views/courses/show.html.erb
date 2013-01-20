@@ -1,6 +1,6 @@
 <%= content_tag :div, "", id: "elevation_profile", data: {elevations: @course.trackpoints} %>
 
-
+<p>Today's Date: <%= Date.current.readable_inspect %>
 <h5>Course ID: <%= @course.id %>
 	<p>Date: <%= @course.created_at %></p>
 	<p>Description: </p>

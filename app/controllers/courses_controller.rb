@@ -30,10 +30,29 @@ class CoursesController < ApplicationController
 	      n.values
 	    end
 
+	    # trying to take ele & time together
+	    #@two_together = map_course.xpath("//trkpt//[position()<3]")
+
+
 	    @ele = map_course.xpath("//ele")
 		@elevations = @ele.map do |e|
-			e.text
+			e.text.to_i
 		end
+
+		@time = map_course.xpath("//time")
+		@times = @time.map do |t|
+			t.text.to_time
+		end
+
+		@zipped_array = @times.zip(@elevations).flatten
+
+		@jayson = []
+
+		@zipped_array.each do |time, elevation|
+			@jayson << {:time => time, :elevation => elevation}
+		end
+
+		@jayson_json = @jayson.to_json
 
 
 		@course = Course.new
