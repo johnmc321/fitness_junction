@@ -5,7 +5,7 @@ jQuery ->
   Morris.Line({
   element: 'elevation_profile'
   data: $('#elevation_profile').data('elevations')
-  xkey: 'x'
-  ykeys: ['y']
+  xkey: 'time'
+  ykeys: ['elevation']
   labels: ['Series A']}
   )

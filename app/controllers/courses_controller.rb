@@ -41,16 +41,23 @@ class CoursesController < ApplicationController
 
 		@time = map_course.xpath("//time")
 		@times = @time.map do |t|
-			t.text.to_time
+			t.text.to_time.strftime('%H%M%S')
 		end
 
+		
 		@zipped_array = @times.zip(@elevations).flatten
+
 
 		@jayson = []
 
-		@zipped_array.each do |time, elevation|
-			@jayson << {:time => time, :elevation => elevation}
+		@zipped_array.each_slice(2) do |value| 
+  			@jayson << {:time => value[0], :elevation => value[1]}
 		end
+
+
+
+		
+
 
 		@jayson_json = @jayson.to_json
 
